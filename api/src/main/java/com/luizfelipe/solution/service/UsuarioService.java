@@ -76,6 +76,12 @@ public class UsuarioService {
 
     public void excluir(Long id) {
 
+        Optional<Usuario> optUsuario = this.repository.findById(id);
+
+        if(optUsuario.isEmpty()) throw new ObjectNotFoundFromParameterException("Erro! Usuário não encontrado para o Id informado!");
+
+        this.repository.delete(optUsuario.get());
+
     }
 
     public List<UsuarioDTO> listar(){

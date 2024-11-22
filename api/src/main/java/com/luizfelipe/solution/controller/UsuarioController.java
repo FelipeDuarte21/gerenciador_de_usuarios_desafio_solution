@@ -89,7 +89,18 @@ public class UsuarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(@PathVariable Long id) {
-        return null;
+        
+        try{
+
+            this.service.excluir(id);
+
+            return ResponseEntity.ok().build();
+
+        }catch(ObjectNotFoundFromParameterException ex){
+            throw new ObjectNotFoundException(ex.getMessage());
+
+        }
+
     }
 
     @GetMapping()
@@ -98,7 +109,7 @@ public class UsuarioController {
         List<UsuarioDTO> usuarios = this.service.listar();
 
         return ResponseEntity.ok().body(usuarios);
-        
+
     }
 
 }
