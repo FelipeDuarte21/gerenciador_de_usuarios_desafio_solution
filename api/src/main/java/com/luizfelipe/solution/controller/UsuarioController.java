@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.luizfelipe.solution.controller.exception.ObjectBadRequestException;
+import com.luizfelipe.solution.controller.exception.ObjectNotFoundException;
 import com.luizfelipe.solution.dto.UsuarioDTO;
 import com.luizfelipe.solution.dto.UsuarioDadosDTO;
 import com.luizfelipe.solution.service.UsuarioService;
 import com.luizfelipe.solution.service.exception.IllegalParameterException;
+import com.luizfelipe.solution.service.exception.ObjectNotFoundFromParameterException;
 
 import jakarta.validation.Valid;
 
@@ -51,8 +53,22 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> alterar(@RequestBody @Valid UsuarioDadosDTO dados, @PathVariable(name = "id") Long id) {
-        return null;
+    public ResponseEntity<UsuarioDTO> alterar(@RequestBody @Valid UsuarioDadosDTO dados, @PathVariable Long id) {
+        
+        try{
+
+            UsuarioDTO usuario = this.service.alterar(dados, id);
+
+            return ResponseEntity.ok().body(usuario);
+
+        }catch(ObjectNotFoundFromParameterException ex){
+            throw new ObjectNotFoundException(ex.getMessage());
+        
+        }catch(IllegalParameterException ex){
+            throw new ObjectBadRequestException(ex.getMessage());
+            
+        }
+
     }
 
     @GetMapping("/{id}")
