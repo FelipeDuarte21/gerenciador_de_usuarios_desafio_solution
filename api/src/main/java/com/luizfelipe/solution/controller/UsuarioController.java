@@ -72,7 +72,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> buscarPorId(@PathVariable(name = "id") Long id){
+    public ResponseEntity<UsuarioDTO> buscarPorId(@PathVariable Long id){
         
         try{
 
@@ -82,19 +82,23 @@ public class UsuarioController {
 
         }catch(ObjectNotFoundFromParameterException ex){
             throw new ObjectNotFoundException(ex.getMessage());
-            
+
         }
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> excluir(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<?> excluir(@PathVariable Long id) {
         return null;
     }
 
     @GetMapping()
     public ResponseEntity<List<UsuarioDTO>> listar(){
-        return null;
+        
+        List<UsuarioDTO> usuarios = this.service.listar();
+
+        return ResponseEntity.ok().body(usuarios);
+        
     }
 
 }

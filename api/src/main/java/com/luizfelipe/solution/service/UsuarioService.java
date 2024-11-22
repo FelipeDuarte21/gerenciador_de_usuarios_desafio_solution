@@ -1,6 +1,7 @@
 package com.luizfelipe.solution.service;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -78,7 +79,11 @@ public class UsuarioService {
     }
 
     public List<UsuarioDTO> listar(){
-        return null;
+        
+        List<Usuario> usuarios = this.repository.findAll();
+
+        return usuarios.stream().map(UsuarioDTO::new).collect(Collectors.toList());
+
     }
 
 }
