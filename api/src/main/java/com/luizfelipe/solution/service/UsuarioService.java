@@ -1,12 +1,15 @@
 package com.luizfelipe.solution.service;
 
+import java.util.Optional;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.luizfelipe.solution.dto.UsuarioDTO;
 import com.luizfelipe.solution.dto.UsuarioDadosDTO;
+import com.luizfelipe.solution.entity.Usuario;
 import com.luizfelipe.solution.repository.UsuarioRepository;
+import com.luizfelipe.solution.service.exception.IllegalParameterException;
 
 @Service
 public class UsuarioService {
@@ -18,7 +21,17 @@ public class UsuarioService {
     }
 
     public UsuarioDTO cadastrar(UsuarioDadosDTO dados){
-        return null;
+        
+        Optional<Usuario> optUsuario = this.repository.findByCpf(dados.cpf());
+
+        if(optUsuario.isPresent()) throw new IllegalParameterException("Erro! o CPF informado já está cadastrado!");
+
+        Usuario usuario = new Usuario(dados);
+
+        this.repository.save(usuario);
+
+        return new UsuarioDTO(usuario);
+        
     }
 
     public UsuarioDTO alterar(UsuarioDadosDTO dados, Long id) {

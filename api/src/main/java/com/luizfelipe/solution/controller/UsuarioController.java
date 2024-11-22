@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import com.luizfelipe.solution.controller.exception.ObjectBadRequestException;
 import com.luizfelipe.solution.dto.UsuarioDTO;
 import com.luizfelipe.solution.dto.UsuarioDadosDTO;
 import com.luizfelipe.solution.service.UsuarioService;
+import com.luizfelipe.solution.service.exception.IllegalParameterException;
 
 import jakarta.validation.Valid;
 
@@ -29,8 +32,22 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioDTO> cadastrar(@RequestBody @Valid UsuarioDadosDTO dados){
-        return null;
+    public ResponseEntity<UsuarioDTO> cadastrar(@RequestBody @Valid UsuarioDadosDTO dados, 
+        UriComponentsBuilder uriBuilder){
+
+        try{
+
+            UsuarioDTO usuario = this.service.cadastrar(dados);
+
+            var uri = uriBuilder.path("/api/v1/usuario/{id}").buildAndExpand(usuario.id()).toUri();
+
+            return ResponseEntity.created(uri).body(usuario);
+
+        }catch(IllegalParameterException ex){
+            throw new ObjectBadRequestException(ex.getMessage());
+            
+        }
+
     }
 
     @PutMapping("/{id}")

@@ -3,6 +3,8 @@ package com.luizfelipe.solution.entity;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.luizfelipe.solution.dto.UsuarioDadosDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,5 +42,16 @@ public class Usuario implements Serializable {
 
     @Column(name = "data_atualizacao")
     private LocalDateTime dataAtualizacao;
+
+    public Usuario(UsuarioDadosDTO dados) {
+        this.nome = dados.nome();
+        this.cpf = dados.cpf();
+        this.cep = dados.cep();
+        this.logradouro = dados.logradouro();
+        this.bairro = dados.bairro();
+        this.cidade = dados.cidade();
+        this.estado = dados.estado();
+        this.dataCriacao = LocalDateTime.now();
+    }
 
 }
