@@ -1,9 +1,9 @@
-package com.luizfelipe.solution.entity;
+package com.luizfelipe.solution.api.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import com.luizfelipe.solution.dto.UsuarioDadosDTO;
+import com.luizfelipe.solution.api.dto.UsuarioDadosDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

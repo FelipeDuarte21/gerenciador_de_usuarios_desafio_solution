@@ -1,9 +1,9 @@
-package com.luizfelipe.solution.dto;
+package com.luizfelipe.solution.api.dto;
 
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.luizfelipe.solution.entity.Usuario;
+import com.luizfelipe.solution.api.entity.Usuario;
 
 public record UsuarioDTO(
     Long id,

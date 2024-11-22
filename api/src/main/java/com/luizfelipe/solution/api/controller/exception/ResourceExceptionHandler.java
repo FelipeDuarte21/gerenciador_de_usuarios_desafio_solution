@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.controller.exception;
+package com.luizfelipe.solution.api.controller.exception;
 
 import java.util.List;
 import java.util.stream.Collectors;

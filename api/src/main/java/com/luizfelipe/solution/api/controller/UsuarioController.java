@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.controller;
+package com.luizfelipe.solution.api.controller;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.luizfelipe.solution.controller.exception.ObjectBadRequestException;
-import com.luizfelipe.solution.controller.exception.ObjectNotFoundException;
-import com.luizfelipe.solution.dto.UsuarioDTO;
-import com.luizfelipe.solution.dto.UsuarioDadosDTO;
-import com.luizfelipe.solution.service.UsuarioService;
-import com.luizfelipe.solution.service.exception.IllegalParameterException;
-import com.luizfelipe.solution.service.exception.ObjectNotFoundFromParameterException;
+import com.luizfelipe.solution.api.controller.exception.ObjectBadRequestException;
+import com.luizfelipe.solution.api.controller.exception.ObjectNotFoundException;
+import com.luizfelipe.solution.api.dto.UsuarioDTO;
+import com.luizfelipe.solution.api.dto.UsuarioDadosDTO;
+import com.luizfelipe.solution.api.service.UsuarioService;
+import com.luizfelipe.solution.api.service.exception.IllegalParameterException;
+import com.luizfelipe.solution.api.service.exception.ObjectNotFoundFromParameterException;
 
 import jakarta.validation.Valid;
 

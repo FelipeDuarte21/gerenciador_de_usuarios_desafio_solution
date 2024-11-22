@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.controller.exception;
+package com.luizfelipe.solution.api.controller.exception;
 
 
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.service;
+package com.luizfelipe.solution.api.service;
 
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -7,12 +7,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.luizfelipe.solution.dto.UsuarioDTO;
-import com.luizfelipe.solution.dto.UsuarioDadosDTO;
-import com.luizfelipe.solution.entity.Usuario;
-import com.luizfelipe.solution.repository.UsuarioRepository;
-import com.luizfelipe.solution.service.exception.IllegalParameterException;
-import com.luizfelipe.solution.service.exception.ObjectNotFoundFromParameterException;
+import com.luizfelipe.solution.api.dto.UsuarioDTO;
+import com.luizfelipe.solution.api.dto.UsuarioDadosDTO;
+import com.luizfelipe.solution.api.entity.Usuario;
+import com.luizfelipe.solution.api.repository.UsuarioRepository;
+import com.luizfelipe.solution.api.service.exception.IllegalParameterException;
+import com.luizfelipe.solution.api.service.exception.ObjectNotFoundFromParameterException;
 
 @Service
 public class UsuarioService {

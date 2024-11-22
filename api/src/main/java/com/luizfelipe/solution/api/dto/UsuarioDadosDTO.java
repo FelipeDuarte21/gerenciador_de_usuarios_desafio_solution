@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.dto;
+package com.luizfelipe.solution.api.dto;
 
 import org.hibernate.validator.constraints.Length;
 

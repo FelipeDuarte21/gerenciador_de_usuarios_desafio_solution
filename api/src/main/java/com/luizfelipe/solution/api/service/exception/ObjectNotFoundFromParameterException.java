@@ -1,4 +1,4 @@
-package com.luizfelipe.solution.service.exception;
+package com.luizfelipe.solution.api.service.exception;
 
 public class ObjectNotFoundFromParameterException extends RuntimeException {
 
