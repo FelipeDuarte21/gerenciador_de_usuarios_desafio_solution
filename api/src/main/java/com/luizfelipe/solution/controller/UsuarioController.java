@@ -66,14 +66,25 @@ public class UsuarioController {
         
         }catch(IllegalParameterException ex){
             throw new ObjectBadRequestException(ex.getMessage());
-            
+
         }
 
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDTO> buscarPorId(@PathVariable(name = "id") Long id){
-        return null;
+        
+        try{
+
+            UsuarioDTO usuario = this.service.buscarPorId(id);
+
+            return ResponseEntity.ok().body(usuario);
+
+        }catch(ObjectNotFoundFromParameterException ex){
+            throw new ObjectNotFoundException(ex.getMessage());
+            
+        }
+
     }
 
     @DeleteMapping("/{id}")

@@ -64,7 +64,13 @@ public class UsuarioService {
     }
 
     public UsuarioDTO buscarPorId(Long id){
-        return null;
+        
+        Optional<Usuario> optUsuario = this.repository.findById(id);
+
+        if(optUsuario.isEmpty()) throw new ObjectNotFoundFromParameterException("Erro! Usuário não encontrado para o Id informado!");
+
+        return new UsuarioDTO(optUsuario.get());
+
     }
 
     public void excluir(Long id) {
