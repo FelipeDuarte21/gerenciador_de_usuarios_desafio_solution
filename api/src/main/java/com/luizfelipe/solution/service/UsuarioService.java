@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.luizfelipe.solution.dtos.UsuarioDTO;
-import com.luizfelipe.solution.dtos.UsuarioDadosDTO;
+import com.luizfelipe.solution.dto.UsuarioDTO;
+import com.luizfelipe.solution.dto.UsuarioDadosDTO;
 import com.luizfelipe.solution.repository.UsuarioRepository;
 
 @Service

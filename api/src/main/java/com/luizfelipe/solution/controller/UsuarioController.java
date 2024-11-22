@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.luizfelipe.solution.dtos.UsuarioDTO;
-import com.luizfelipe.solution.dtos.UsuarioDadosDTO;
+import com.luizfelipe.solution.dto.UsuarioDTO;
+import com.luizfelipe.solution.dto.UsuarioDadosDTO;
 import com.luizfelipe.solution.service.UsuarioService;
 
 import jakarta.validation.Valid;

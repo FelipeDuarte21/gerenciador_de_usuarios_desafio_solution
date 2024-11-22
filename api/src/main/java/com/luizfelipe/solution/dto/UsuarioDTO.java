@@ -1,6 +1,8 @@
-package com.luizfelipe.solution.dtos;
+package com.luizfelipe.solution.dto;
 
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public record UsuarioDTO(
     String nome,
@@ -10,6 +12,10 @@ public record UsuarioDTO(
     String bairro,
     String cidade,
     String estado,
+    
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     LocalDateTime dataCriacao,
+    
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     LocalDateTime dataAtualizacao
 ) {}
