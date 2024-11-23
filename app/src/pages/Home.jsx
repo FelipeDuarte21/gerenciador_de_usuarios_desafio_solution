@@ -1,25 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "../components/Container";
 import Cabecalho from "../components/Cabecalho";
 import { FaRegFloppyDisk } from "react-icons/fa6";
-import Card from "../components/Card";
+
+import useUsuarios from "../hooks/useUsuarios";
+
+import CardList from "../components/CardList";
 
 const Home = () => {
 
-    const [usuarios, setUsuarios] = useState([
-        {
-            id: 1,
-            nome: 'Luiz Felipe Duarte Elias',
-            cpf: '16380658700',
-            cep: '21866197',
-            logradouro: 'Rua Williams',
-            bairro: 'Bangu',
-            cidade: 'Rio de Janeiro',
-            estado: 'RJ',
-            dataCriacao: '22/11/2024 21:15:45',
-            dataAtualizacao: null
-        }
-    ]);
+    const { data, isLoading, isError }  = useUsuarios();
 
     const onEditar = (id) => {
         console.log(id);
@@ -40,13 +30,7 @@ const Home = () => {
                     <FaRegFloppyDisk className="me-1"/>Cadastrar
                 </button>
 
-                <div className="row my-4">
-
-                    {usuarios.map( (usuario, i) => {
-                        return <Card usuario={usuario} key={i} onEditar={onEditar} onExcluir={onExcluir} />
-                    })}
-                    
-                </div>
+                <CardList usuarios={data} isError={isError} isLoading={isLoading} onEditar={onEditar} onExcluir={onExcluir} />
 
             </Container>
         </>

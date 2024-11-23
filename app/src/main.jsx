@@ -4,9 +4,14 @@ import { createRoot } from 'react-dom/client'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import App from './App.jsx'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
 	<StrictMode>
-		<App />
-	</StrictMode>,
+		<QueryClientProvider client={queryClient}>
+			<App />
+		</QueryClientProvider>
+	</StrictMode>
 )
