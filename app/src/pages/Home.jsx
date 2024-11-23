@@ -1,7 +1,8 @@
 import React from "react";
 import Container from "../components/Container";
 import Cabecalho from "../components/Cabecalho";
-import { FaRegFloppyDisk } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 import useUsuarios from "../hooks/useUsuarios";
 
@@ -26,9 +27,9 @@ const Home = () => {
 
                 <h3 className="text-center mt-4">Endereços</h3>
 
-                <button type="button" className="btn btn-primary my-3">
-                    <FaRegFloppyDisk className="me-1"/>Cadastrar
-                </button>
+                <Link className="btn btn-primary my-3" to="/cadastro">
+                    <FaPlus className="me-1"/>Novo
+                </Link>
 
                 <CardList usuarios={data} isError={isError} isLoading={isLoading} onEditar={onEditar} onExcluir={onExcluir} />
 
