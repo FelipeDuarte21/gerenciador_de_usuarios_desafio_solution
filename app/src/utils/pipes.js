@@ -25,3 +25,7 @@ export const pipeCep = (cep) => {
     }
     return cepMascarado;
 }
+
+export const tiraMascaraCPF = (cpf) => {
+    return cpf.replace(".", "").replace(".", "").replace(".", "").replace("-", "");
+}

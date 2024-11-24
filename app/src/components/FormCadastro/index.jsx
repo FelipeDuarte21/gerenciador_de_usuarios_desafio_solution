@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 import { FaRegFloppyDisk } from "react-icons/fa6";
 import useEndereco from '../../hooks/useEndereco';
 import Spinner from '../Spinner';
 import { useQueryClient } from 'react-query';
+import Field from "../Field";
+import { tiraMascaraCPF } from "../../utils/pipes";
 
 const FormCadastro = ({ onReceberDados }) => {
 
@@ -19,14 +20,9 @@ const FormCadastro = ({ onReceberDados }) => {
     const queryClient = useQueryClient();
 
     const onSubmit = (dados) => {
-        dados = {...dados, cpf: trataCPF(dados.cpf)};
+        dados = {...dados, cpf: tiraMascaraCPF(dados.cpf)};
         onReceberDados(dados);
         queryClient.setQueriesData('endereco-data', undefined);
-    }
-
-    const trataCPF = (cpf) => {
-        return cpf.replace(".", "").replace(".", "")
-            .replace(".", "").replace("-", "");
     }
 
     useEffect(() => {
@@ -53,73 +49,33 @@ const FormCadastro = ({ onReceberDados }) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
 
-            <label htmlFor="nome" className="form-label mb-0">Nome:</label>
-            <input id="nome" type="text" className={`form-control ${errors.nome ? 'is-invalid' : ''}`}
-                {...register('nome', {
-                    required: {
-                        value: true,
-                        message: "Nome é requerido !"
-                    },
-                    minLength: {
-                        value: 3,
-                        message: 'Nome tem que ter pelo menos 3 caracteres!'
-                    },
-                    maxLength: {
-                        value: 60,
-                        message: 'Nome não pode passar de 60 caracteres!'
-                    }
-                })}
+            <Field nameField="nome" label="Nome" register={register} errors={errors}
+                validation={{
+                    required: { value: true, message: "Nome é requerido !" },
+                    minLength: { value: 3, message: 'Nome tem que ter pelo menos 3 caracteres!'  },
+                    maxLength: { value: 60, message: 'Nome não pode passar de 60 caracteres!' }
+                }} 
             />
-            {errors.nome &&
-                <>
-                    <div id="nomeFeedback" className="invalid-feedback">
-                        {errors.nome.message}
-                    </div>
-                </>
-            }
 
             <div className="row mt-2">
 
                 <div className="col-12 col-md-6">
-                    <label htmlFor="cpf" className="form-label mb-0">CPF:</label>
-                    <InputMask id="cpf" mask="999.999.999-99" className={`form-control ${errors.cpf ? 'is-invalid' : ''}`}
-                        {...register('cpf', {
-                            required: {
-                                value: true,
-                                message: 'CPF é requerido!'
-                            }
-                        })}
+
+                    <Field nameField="cpf" label="CPF" register={register} errors={errors} 
+                        isInputMask={true}  mask="999.999.999-99" validation={{
+                            required: { value: true,  message: 'CPF é requerido!'}
+                        }} 
                     />
-                    {errors.cpf &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.cpf.message}
-                            </div>
-                        </>
-                    }
+
                 </div>
 
                 <div className="col-12 col-md-6">
-                    <label htmlFor="cep" className="form-label mb-0 mt-3 mt-md-0">CEP:</label>
-                    <input id="cep" className={`form-control ${errors.cep ? 'is-invalid' : ''}`}
-                        {...register('cep', {
-                            required: {
-                                value: true,
-                                message: 'CEP é requerido'
-                            },
-                            pattern: {
-                                value: /^[0-9]{8}$/,
-                                message: "CEP fora do formato padrão de 8 digitos"
-                            }
-                        })}
+                    <Field nameField="cep" label="CEP" register={register} errors={errors} 
+                        validation={{
+                            required: { value: true,  message: 'CEP é requerido' },
+                            pattern: { value: /^[0-9]{8}$/, message: "CEP fora do formato padrão de 8 digitos" }
+                        }} 
                     />
-                    {errors.cep &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.cep.message}
-                            </div>
-                        </>
-                    }
                 </div>
 
             </div>
@@ -135,13 +91,11 @@ const FormCadastro = ({ onReceberDados }) => {
                     <div className="row mt-4">
 
                         <div className="col-12 col-md-8">
-                            <label htmlFor="logradouro" className="form-label mb-0">Logradouro:</label>
-                            <input id="logradouro" type="text" className="form-control" {...register('logradouro')} readOnly />
+                            <Field nameField="logradouro" label="Logradouro" register={register} errors={errors} validation={{}} isReadOnly={true} />
                         </div>
 
                         <div className="col-12 col-md-4">
-                            <label htmlFor="Bairro" className="form-label mb-0 mt-3 mt-md-0">Bairro:</label>
-                            <input id="bairro" type="text" className="form-control" {...register('bairro')}  readOnly/>
+                            <Field nameField="bairro" label="Bairro" register={register} errors={errors} validation={{}} isReadOnly={true}/>
                         </div>
 
                     </div>
@@ -149,13 +103,11 @@ const FormCadastro = ({ onReceberDados }) => {
                     <div className="row mt-3">
 
                         <div className="col-12 col-md-9">
-                            <label htmlFor="cidade" className="form-label mb-0">Cidade:</label>
-                            <input id="cidade" type="text" className="form-control" {...register('cidade')}  readOnly/>
+                            <Field nameField="cidade" label="Cidade" register={register} errors={errors} validation={{}} isReadOnly={true} />
                         </div>
 
                         <div className="col-12 col-md-3">
-                            <label htmlFor="estado" className="form-label mb-0 mt-3 mt-md-0">Estado:</label>
-                            <input id="estado" type="text" className="form-control" {...register('estado')} readOnly />
+                            <Field nameField="estado" label="Estado" register={register} errors={errors} validation={{}} isReadOnly={true} />
                         </div>
 
                     </div>

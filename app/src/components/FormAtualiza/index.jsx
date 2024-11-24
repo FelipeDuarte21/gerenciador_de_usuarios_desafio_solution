@@ -1,20 +1,16 @@
 import React, { useEffect } from "react";
-import InputMask from 'react-input-mask';
 import { useForm } from 'react-hook-form';
 import { FaRegFloppyDisk } from "react-icons/fa6";
+import Field from "../Field";
+import { tiraMascaraCPF } from "../../utils/pipes";
 
 const FormAtualiza = ({ dados, onReceberDados }) => {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
     const onSubmit = (dados) => {
-        dados = {...dados, cpf: trataCPF(dados.cpf)};
+        dados = {...dados, cpf: tiraMascaraCPF(dados.cpf)};
         onReceberDados(dados);
-    }
-
-    const trataCPF = (cpf) => {
-        return cpf.replace(".", "").replace(".", "")
-            .replace(".", "").replace("-", "");
     }
 
     useEffect(() => {
@@ -35,73 +31,28 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
 
-            <label htmlFor="nome" className="form-label mb-0">Nome:</label>
-            <input id="nome" type="text" className={`form-control ${errors.nome ? 'is-invalid' : ''}`}
-                {...register('nome', {
-                    required: {
-                        value: true,
-                        message: "Nome é requerido !"
-                    },
-                    minLength: {
-                        value: 3,
-                        message: 'Nome tem que ter pelo menos 3 caracteres!'
-                    },
-                    maxLength: {
-                        value: 60,
-                        message: 'Nome não pode passar de 60 caracteres!'
-                    }
-                })}
+            <Field nameField="nome" label="Nome" register={register} errors={errors} 
+                validation={{
+                    required: { value: true, message: "Nome é requerido !" },
+                    minLength: { value: 3, message: 'Nome tem que ter pelo menos 3 caracteres!' },
+                    maxLength: { value: 60, message: 'Nome não pode passar de 60 caracteres!'}
+                }}
             />
-            {errors.nome &&
-                <>
-                    <div id="nomeFeedback" className="invalid-feedback">
-                        {errors.nome.message}
-                    </div>
-                </>
-            }
 
             <div className="row mt-2">
 
                 <div className="col-12 col-md-6">
-                    <label htmlFor="cpf" className="form-label mb-0">CPF:</label>
-                    <InputMask id="cpf" mask="999.999.999-99" className={`form-control ${errors.cpf ? 'is-invalid' : ''}`}
-                        {...register('cpf', {
-                            required: {
-                                value: true,
-                                message: 'CPF é requerido!'
-                            }
-                        })}
-                    />
-                    {errors.cpf &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.cpf.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="cpf" label="CPF" register={register} errors={errors} 
+                        isInputMask={true}  mask="999.999.999-99" 
+                            validation={{ required: { value: true,  message: 'CPF é requerido!'}}} />
                 </div>
 
                 <div className="col-12 col-md-6">
-                    <label htmlFor="cep" className="form-label mb-0 mt-3 mt-md-0">CEP:</label>
-                    <input id="cep" className={`form-control ${errors.cep ? 'is-invalid' : ''}`}
-                        {...register('cep', {
-                            required: {
-                                value: true,
-                                message: 'CEP é requerido'
-                            },
-                            pattern: {
-                                value: /^[0-9]{8}$/,
-                                message: "CEP fora do formato padrão de 8 digitos"
-                            }
-                        })}
-                    />
-                    {errors.cep &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.cep.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="cep" label="CEP" register={register} errors={errors} 
+                        validation={{
+                            required: { value: true,  message: 'CEP é requerido' },
+                            pattern: { value: /^[0-9]{8}$/, message: "CEP fora do formato padrão de 8 digitos" }
+                        }} />
                 </div>
 
             </div>
@@ -110,41 +61,13 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
             <div className="row mt-4">
 
                 <div className="col-12 col-md-8">
-                    <label htmlFor="logradouro" className="form-label mb-0">Logradouro:</label>
-                    <input id="logradouro" type="text" className={`form-control ${errors.logradouro ? 'is-invalid' : ''}`}
-                        {...register('logradouro', {
-                            required: {
-                                value: true,
-                                message: 'Logradouro é requerido!'
-                            }
-                        })}
-                    />
-                    {errors.logradouro &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.logradouro.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="logradouro" label="Logradouro" register={register} errors={errors} 
+                        validation={{ required: { value: true,  message: 'Logradouro é requerido!'}}} />
                 </div>
 
                 <div className="col-12 col-md-4">
-                    <label htmlFor="Bairro" className="form-label mb-0 mt-3 mt-md-0">Bairro:</label>
-                    <input id="bairro" type="text" className={`form-control ${errors.bairro ? 'is-invalid' : ''}`}
-                        {...register('bairro', {
-                            required: {
-                                value: true,
-                                message: 'Bairro é requerido!'
-                            }
-                        })}
-                    />
-                    {errors.bairro &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.bairro.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="bairro" label="Bairro" register={register} errors={errors} 
+                        validation={{ required: { value: true,  message: 'Bairro é requerido!' }}} />
                 </div>
 
             </div>
@@ -152,45 +75,13 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
             <div className="row mt-3">
 
                 <div className="col-12 col-md-9">
-                    <label htmlFor="cidade" className="form-label mb-0">Cidade:</label>
-                    <input id="cidade" type="text" className={`form-control ${errors.cidade ? 'is-invalid' : ''}`}
-                        {...register('cidade', {
-                            required: {
-                                value: true,
-                                message: 'Cidade é requerido!'
-                            }
-                        })}
-                    />
-                    {errors.cidade &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.cidade.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="cidade" label="Cidade" register={register} errors={errors} 
+                        validation={{required: { value: true,  message: 'Cidade é requerido!'}}} />
                 </div>
 
                 <div className="col-12 col-md-3">
-                    <label htmlFor="estado" className="form-label mb-0 mt-3 mt-md-0">Estado:</label>
-                    <input id="estado" type="text" className={`form-control ${errors.estado ? 'is-invalid' : ''}`}
-                        {...register('estado', {
-                            required: {
-                                value: true,
-                                message: 'Estado é requerido!'
-                            },
-                            pattern: {
-                                value: /^[A-Z]{2}$/,
-                                message: "Estado deve se a abreviação do Estado ex: RJ, SP, MG"
-                            }
-                        })}
-                    />
-                    {errors.estado &&
-                        <>
-                            <div className="invalid-feedback">
-                                {errors.estado.message}
-                            </div>
-                        </>
-                    }
+                    <Field nameField="estado" label="Estado" register={register} errors={errors} 
+                        validation={{required: { value: true,  message: 'Estado é requerido!' }}} />
                 </div>
 
             </div>
