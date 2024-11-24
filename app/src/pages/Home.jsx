@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/Container";
 import Cabecalho from "../components/Cabecalho";
 import { FaPlus } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import useUsuarios from "../hooks/useUsuarios";
 
@@ -10,10 +10,12 @@ import CardList from "../components/CardList";
 
 const Home = () => {
 
+    const navigate = useNavigate();
+
     const { data, isLoading, isError }  = useUsuarios();
 
     const onEditar = (id) => {
-        console.log(id);
+        navigate(`/atualiza/${id}`);
     }
 
     const onExcluir = (id) => {
