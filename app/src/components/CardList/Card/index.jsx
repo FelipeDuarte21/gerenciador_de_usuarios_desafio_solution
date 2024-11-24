@@ -1,6 +1,7 @@
 import React from "react";
 import { FaPenToSquare } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { pipeCPF , pipeCep } from "../../../utils/pipes";
 
 const Card = ({usuario, onEditar, onExcluir}) => {
 
@@ -14,10 +15,10 @@ const Card = ({usuario, onEditar, onExcluir}) => {
                     <p>{usuario.nome}</p>
 
                     <h5 className="mb-0">CPF:</h5>
-                    <p>{usuario.cpf}</p>
+                    <p>{pipeCPF(usuario.cpf)}</p>
 
                     <h5 className="mb-0">CEP:</h5>
-                    <p>{usuario.cep}</p>
+                    <p>{pipeCep(usuario.cep)}</p>
 
                     <h5 className="mb-0">Logradouro:</h5>
                     <p>{usuario.logradouro}</p>
