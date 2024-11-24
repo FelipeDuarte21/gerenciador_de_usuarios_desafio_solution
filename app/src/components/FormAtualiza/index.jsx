@@ -196,7 +196,7 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
             </div>
 
             <button type="submit" className="btn btn-primary mt-4">
-                <FaRegFloppyDisk className="me-1" />Cadastrar
+                <FaRegFloppyDisk className="me-1" />Atualizar
             </button>
 
         </form>

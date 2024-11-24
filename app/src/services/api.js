@@ -9,12 +9,23 @@ export const buscarUsuarios = async () => {
     return resp.data;
 }
 
-export const buscarEnderecoPorCep = async (cep) => {
-    const resp = await api.get(`/api/v1/endereco/consulta/${cep}`);
+export const cadatrarUsuario = async (dados) => {
+    const resp = await api.post(`/api/v1/usuario`, dados);
     return resp.data;
 }
 
-export const cadatrarUsuario = async (dados) => {
-    const resp = await api.post(`/api/v1/usuario`, dados);
+export const buscarUsuarioPorId = async (id) => {
+    const resp = await api.get(`/api/v1/usuario/${id}`);
+    return resp.data;
+}
+
+export const atualizarUsuario = async (id, dados) => {
+    const resp = await api.put(`/api/v1/usuario/${id}`, dados);
+    return resp.data;
+}
+
+
+export const buscarEnderecoPorCep = async (cep) => {
+    const resp = await api.get(`/api/v1/endereco/consulta/${cep}`);
     return resp.data;
 }
