@@ -5,7 +5,7 @@ const Cabecalho = () => {
     return (
         <nav className="navbar bg-primary">
             <div className="container">
-                <Link className="navbar-brand" to="/">Solution</Link>
+                <Link className="navbar-brand text-white" to="/">Gerenciamento de Usuários</Link>
             </div>
         </nav>
     )

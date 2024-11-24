@@ -25,7 +25,7 @@ const Home = () => {
             <Cabecalho />
             <Container>
 
-                <h3 className="text-center mt-4">Endereços</h3>
+                <h3 className="text-center mt-4">Usuários</h3>
 
                 <Link className="btn btn-primary my-3" to="/cadastro">
                     <FaPlus className="me-1"/>Novo
