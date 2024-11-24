@@ -24,6 +24,10 @@ export const atualizarUsuario = async (id, dados) => {
     return resp.data;
 }
 
+export const excluirUsuario = async (id) => {
+    const resp = await api.delete(`/api/v1/usuario/${id}`);
+    return resp.data;
+}
 
 export const buscarEnderecoPorCep = async (cep) => {
     const resp = await api.get(`/api/v1/endereco/consulta/${cep}`);
