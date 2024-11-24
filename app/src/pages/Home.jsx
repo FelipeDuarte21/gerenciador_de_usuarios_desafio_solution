@@ -7,6 +7,8 @@ import useUsuarios from "../hooks/useUsuarios";
 import CardList from "../components/CardList";
 import Swal from 'sweetalert2';
 import useExcluiUsuario from "../hooks/useExcluiUsuario";
+import { FaUserLarge } from "react-icons/fa6";
+
 
 const Home = () => {
 
@@ -50,7 +52,7 @@ const Home = () => {
             <Cabecalho />
             <Container>
 
-                <h3 className="text-center mt-4">Usuários</h3>
+                <h3 className="text-center mt-4"><FaUserLarge className="me-1" />Usuários</h3>
 
                 <Link className="btn btn-primary my-3" to="/cadastro">
                     <FaPlus className="me-1"/>Novo

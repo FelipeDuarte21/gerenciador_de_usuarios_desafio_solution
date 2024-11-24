@@ -6,6 +6,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import FormCadastro from "../components/FormCadastro";
 import  useCadastroUsuario from '../hooks/useCadastroUsuario';
 import Swal from 'sweetalert2';
+import { FaUserPlus } from "react-icons/fa6";
  
 const Cadastro = () => {
 
@@ -43,7 +44,7 @@ const Cadastro = () => {
             <Cabecalho/>
             <Container>
 
-                <h3 className="text-center mt-4">Cadastro de Usuários</h3>
+                <h3 className="text-center mt-4"><FaUserPlus className="me-1" />Cadastrar Usuário</h3>
 
                 <Link className="btn btn-outline-secondary mt-3" to="/">
                     <FaArrowLeftLong className="me-1"/>Voltar

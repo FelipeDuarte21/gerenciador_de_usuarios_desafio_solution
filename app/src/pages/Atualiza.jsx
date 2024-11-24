@@ -8,6 +8,7 @@ import useUsarioId from "../hooks/useUsuarioId";
 import useAtualizaUsuario from "../hooks/useAtualizaUsuario";
 import Spinner from '../components/Spinner';
 import Swal from 'sweetalert2';
+import { FaUserPen } from "react-icons/fa6";
 
 const Atualiza = () => {
 
@@ -54,7 +55,7 @@ const Atualiza = () => {
             <Cabecalho />
             <Container>
 
-                <h3 className="text-center mt-4">Atualizar Cadastro de Usuário</h3>
+                <h3 className="text-center mt-4"><FaUserPen className="me-1" />Atualizar Cadastro de Usuário</h3>
 
                 <Link className="btn btn-outline-secondary mt-3" to="/">
                     <FaArrowLeftLong className="me-1" />Voltar
