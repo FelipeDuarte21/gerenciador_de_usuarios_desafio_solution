@@ -1,8 +1,6 @@
 import React from "react";
 import './styles.css';
 import { colocaMascaraCEP, colocaMascaraCPF } from "../../../utils/pipes";
-import { FaPenToSquare } from "react-icons/fa6";
-import { FaRegTrashCan } from "react-icons/fa6";
 
 const Table = ({ usuarios, onEditar, onExcluir }) => {
 
@@ -37,8 +35,8 @@ const Table = ({ usuarios, onEditar, onExcluir }) => {
                                 <td className="text-center">{usuario.dataCriacao}</td>
                                 <td className="text-center">{usuario.dataAtualizacao}</td>
                                 <td className="text-center">
-                                    <button type="button" className="btn btn-sm btn-primary me-1" onClick={e => onEditar(usuario.id)}><FaPenToSquare /></button>
-                                    <button type="button" className="btn btn-sm btn-danger" onClick={e => onExcluir(usuario.id)}><FaRegTrashCan /></button>
+                                    <button type="button" className="btn btn-sm btn-primary me-1" onClick={e => onEditar(usuario.id)}><i className="fa-solid fa-user-pen"></i></button>
+                                    <button type="button" className="btn btn-sm btn-danger" onClick={e => onExcluir(usuario.id)}><i className="fa-solid fa-user-minus"></i></button>
                                 </td>
                             </tr>
                         })}

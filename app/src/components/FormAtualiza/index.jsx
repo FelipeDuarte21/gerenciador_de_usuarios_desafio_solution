@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useForm } from 'react-hook-form';
-import { FaRegFloppyDisk } from "react-icons/fa6";
 import Field from "../Field";
 import { tiraMascaraCPF, tiraMascaraCEP } from "../../utils/pipes";
 
@@ -87,7 +86,7 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
             </div>
 
             <button type="submit" className="btn btn-primary mt-4">
-                <FaRegFloppyDisk className="me-1" />Atualizar
+                <i className="fa-solid fa-floppy-disk me-1"></i>Atualizar
             </button>
 
         </form>

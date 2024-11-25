@@ -1,6 +1,4 @@
 import React from "react";
-import { FaPenToSquare } from "react-icons/fa6";
-import { FaRegTrashCan } from "react-icons/fa6";
 import { colocaMascaraCPF , colocaMascaraCEP } from "../../../utils/pipes";
 
 const Card = ({usuario, onEditar, onExcluir}) => {
@@ -53,8 +51,8 @@ const Card = ({usuario, onEditar, onExcluir}) => {
                 <div className="card-footer">
 
                     <div className="float-end">
-                        <button type="button" className="btn btn-sm btn-primary me-1" onClick={event => onEditar(usuario.id)}><FaPenToSquare /></button>
-                        <button type="button" className="btn btn-sm btn-danger" onClick={event => onExcluir(usuario.id)}><FaRegTrashCan /></button>
+                        <button type="button" className="btn btn-sm btn-primary me-1" onClick={event => onEditar(usuario.id)}><i className="fa-solid fa-user-pen"></i></button>
+                        <button type="button" className="btn btn-sm btn-danger" onClick={event => onExcluir(usuario.id)}><i className="fa-solid fa-user-minus"></i></button>
                     </div>
 
                 </div>

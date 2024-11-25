@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form';
-import { FaRegFloppyDisk } from "react-icons/fa6";
 import useEndereco from '../../hooks/useEndereco';
 import Spinner from '../Spinner';
 import { useQueryClient } from 'react-query';
@@ -123,7 +122,7 @@ const FormCadastro = ({ onReceberDados }) => {
 
 
             <button type="submit" className="btn btn-primary mt-4">
-                <FaRegFloppyDisk className="me-1" />Cadastrar
+                <i className="fa-solid fa-floppy-disk me-1"></i>Cadastrar
             </button>
 
         </form>

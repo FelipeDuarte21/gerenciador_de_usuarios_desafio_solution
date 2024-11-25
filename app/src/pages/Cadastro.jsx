@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import Cabecalho from '../components/Cabecalho';
 import Container from '../components/Container';
 import { Link, useNavigate } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
 import FormCadastro from "../components/FormCadastro";
 import  useCadastroUsuario from '../hooks/useCadastroUsuario';
 import Swal from 'sweetalert2';
-import { FaUserPlus } from "react-icons/fa6";
  
 const Cadastro = () => {
 
@@ -44,10 +42,10 @@ const Cadastro = () => {
             <Cabecalho/>
             <Container>
 
-                <h3 className="text-center mt-4"><FaUserPlus className="me-1" />Cadastrar Usuário</h3>
+                <h3 className="text-center mt-4"><i className="fa-solid fa-user-plus me-1"></i>Cadastrar Usuário</h3>
 
                 <Link className="btn btn-outline-secondary mt-3" to="/">
-                    <FaArrowLeftLong className="me-1"/>Voltar
+                    <i className="fa-solid fa-left-long me-1"></i>Voltar
                 </Link>
 
                 <div className="row mt-5 mb-3">

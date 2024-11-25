@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import { FaRegFaceSadTear } from "react-icons/fa6";
 import Card from "./Card";
 import Table from "./Table";
 import Spinner from "../Spinner";
-import { FaTableList } from "react-icons/fa6";
-import { FaAddressCard } from "react-icons/fa6";
-
-
 
 const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
 
@@ -19,7 +14,7 @@ const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
 
             {!isLoading && isError && <>
                 <p className="alert alert-danger text-center mt-3">
-                    <FaRegFaceSadTear className="me-1" />Ocorreu um erro ao buscar usuários
+                    Ocorreu um erro ao buscar usuários
                 </p>
             </>}
 
@@ -27,7 +22,7 @@ const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
 
                 {usuarios.length == 0 && <>
                     <p className="alert alert-warning text-center mt-3">
-                        <FaRegFaceSadTear className="me-1" />Nenhum usuário encontrado encontrado
+                        Nenhum usuário encontrado encontrado
                     </p>
                 </>}
 
@@ -35,8 +30,8 @@ const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
                 
                     <div className="my-3 d-flex justify-content-end">
                         <div className="btn-group btn-group-sm">
-                            <button type="button" className={`btn btn-outline-primary ${view === 'card' ? 'active' : ''}`} onClick={e => setView('card')}><FaAddressCard className="me-1"/>Card</button>
-                            <button type="button" className={`btn btn-outline-primary ${view === 'table' ? 'active' : ''}`} onClick={e => setView('table')}><FaTableList className="me-1"/>Tabela</button>
+                            <button type="button" className={`btn btn-outline-primary ${view === 'card' ? 'active' : ''}`} onClick={e => setView('card')}><i className="fa-solid fa-address-card me-1"></i>Card</button>
+                            <button type="button" className={`btn btn-outline-primary ${view === 'table' ? 'active' : ''}`} onClick={e => setView('table')}><i className="fa-solid fa-table-list me-1"></i>Tabela</button>
                         </div>
                     </div>
 
