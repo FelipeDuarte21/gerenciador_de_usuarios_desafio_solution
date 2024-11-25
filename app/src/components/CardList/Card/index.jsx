@@ -6,7 +6,7 @@ const Card = ({usuario, onEditar, onExcluir}) => {
     return (
         <div className="col-12 col-lg-8 col-xl-4">
 
-            <div className="card mt-3 mt-lg-4 shadow-sm">
+            <div className="card mt-3 mt-lg-2 shadow-sm">
                 <div className="card-body">
 
                     <h5 className="mb-0">Nome:</h5>

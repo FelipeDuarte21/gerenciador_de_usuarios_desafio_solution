@@ -1,7 +1,6 @@
 package com.luizfelipe.solution.api.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,6 @@ import com.luizfelipe.solution.api.dto.EnderecoDTO;
 import com.luizfelipe.solution.api.service.EnderecoService;
 import com.luizfelipe.solution.api.service.exception.IllegalParameterException;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/endereco")
 public class EnderecoController {
