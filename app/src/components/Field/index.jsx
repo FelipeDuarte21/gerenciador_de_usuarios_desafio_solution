@@ -26,8 +26,17 @@ const Field = ({ nameField, label, register, validation, errors, isInputMask = f
             {!isInputMask && <>
 
                 {!isReadOnly && <>
-                    <input id={nameField} type="text" className={`form-control ${errors[nameField] ? 'is-invalid' : ''}`}
-                        {...register(`${nameField}`, validation)} onChange={ e => onChangeHandler(e.target.value) } value={valueInput} />
+                    
+                    {isHandlerValue && <>
+                        <input id={nameField} type="text" className={`form-control ${errors[nameField] ? 'is-invalid' : ''}`}
+                            {...register(`${nameField}`, validation)} onChange={ e => onChangeHandler(e.target.value) } value={valueInput} />
+                    </>}
+
+                    {!isHandlerValue && <>
+                        <input id={nameField} type="text" className={`form-control ${errors[nameField] ? 'is-invalid' : ''}`}
+                            {...register(`${nameField}`, validation)} />
+                    </>}
+                
                 </>}
 
                 {isReadOnly && <>

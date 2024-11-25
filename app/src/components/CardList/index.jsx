@@ -22,7 +22,7 @@ const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
 
                 {usuarios.length == 0 && <>
                     <p className="alert alert-warning text-center mt-3">
-                        Nenhum usuário encontrado encontrado
+                        <i className="fa-solid fa-face-sad-tear me-1"></i>Nenhum usuário cadastrado no momento!
                     </p>
                 </>}
 
