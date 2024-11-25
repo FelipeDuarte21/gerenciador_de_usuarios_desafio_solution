@@ -1,0 +1,39 @@
+3ca15e4 - 25/11/2024 01:49:49: Adicionando arquivo docker-compose para a aplicação rodar pelo docker
+9edf81b - 25/11/2024 01:15:12: Adicionando configuração para API rodar no Docker
+9aa8164 - 25/11/2024 01:08:48: Adicionado arquivo Dockerfile e NgInx para o FrontEnd
+c586bbe - 25/11/2024 01:04:11: Corrigindo o Dockerfile da API
+51928d2 - 25/11/2024 01:02:35: Adicioando arquivo Dockerfile para a API
+7609513 - 25/11/2024 00:53:26: Ajustando a lista de usuários para a ordem alfabetica dos nomes dos usuários
+5750e81 - 25/11/2024 00:41:41: Refatorando o arquivo api.js
+7e571f8 - 25/11/2024 00:35:08: Correção de bug no formulario de cadastro
+570d2b6 - 25/11/2024 00:18:42: Ajuste nos formularios de cadastro e atualização
+774d092 - 24/11/2024 22:38:52: Ajustando icones das páginas
+c92feec - 24/11/2024 22:14:55: Ajustes nos pipes , no formulario de cadastro e alteração e ajustes na busca de endereço por cep
+e20e43a - 24/11/2024 04:01:41: Refatorando os Campos dos formulários de cadastro e atualização
+1e867d8 - 24/11/2024 03:19:26: Adicionando icones nos títulos das páginas
+ba7f3a4 - 24/11/2024 02:51:58: Implementando a visualização dos usuários por meio de tabela
+33de5aa - 24/11/2024 01:59:14: Implementando Pipes para CPF e CEP
+6c86c40 - 24/11/2024 01:44:57: Integrando o Frontend com o Backend para fazer a exclusão do Usuário
+7400ba0 - 24/11/2024 01:17:11: Integrando o Frontend com o backend para a atualização do cadastro do usuário
+4acf171 - 24/11/2024 00:32:30: Implementando página de Atulização de cadastro do usuário
+1e9f49f - 23/11/2024 22:06:09: Desativando o CrosOrigin para a consulta de CEP
+e3024cc - 23/11/2024 22:05:21: Integrando o Frontend com Backend para o cadastro do usuário
+71bef4e - 23/11/2024 14:50:25: Implementando a página de cadastro de usuário
+906ba0e - 23/11/2024 02:43:20: Desabilitando o CrossOrigin
+9828804 - 23/11/2024 02:42:07: Implementando a busca de usuarios e exibindo na tela de Home
+c06c100 - 23/11/2024 01:08:25: Implementando a Página de lista de usuarios
+320962e - 22/11/2024 22:41:19: Deletando arquivos que não serao usados e instalando bibliotecas
+4d797f4 - 22/11/2024 21:27:32: Subindo a estrutura básica para o Frontend
+de43188 - 22/11/2024 20:56:44: Implementando consulta de endereco por CEP
+242459d - 22/11/2024 20:39:28: Implementando chamada interna para a API ViaCEP
+fbfad03 - 22/11/2024 20:11:41: Ajustando a organização dos pacotes da API
+7b58902 - 22/11/2024 20:04:58: Implementando exclusão de usuário
+d670069 - 22/11/2024 20:01:19: Implementando a lista de usuarios
+0cf9ef1 - 22/11/2024 19:57:33: Implementando a busca de usuário pelo Id
+22e6f90 - 22/11/2024 19:54:19: Implementando a alteração de dados do usuário
+4f3c1cc - 22/11/2024 19:38:20: Implementando o cadastro de usuário
+eace881 - 22/11/2024 19:13:23: Implementando personalização de retorno de erros
+c632bb6 - 22/11/2024 19:07:22: Implementando validação para os dados quando for recebido pela API e ajustes no script de criação da tabela usuários
+8f32923 - 22/11/2024 00:16:39: Implementando estrutura básica da API
+7a8254c - 21/11/2024 23:46:02: configurando o banco de dados postgreSQL e o H2 para teste e configurando o Flyway
+86d74ff - 21/11/2024 22:01:43: Subindo o código fonte base da API do projeto
