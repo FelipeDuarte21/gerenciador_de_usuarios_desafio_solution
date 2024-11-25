@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.luizfelipe.solution.api.dto.UsuarioDTO;
@@ -85,8 +86,8 @@ public class UsuarioService {
     }
 
     public List<UsuarioDTO> listar(){
-        
-        List<Usuario> usuarios = this.repository.findAll();
+   
+        List<Usuario> usuarios = this.repository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 
         return usuarios.stream().map(UsuarioDTO::new).collect(Collectors.toList());
 
