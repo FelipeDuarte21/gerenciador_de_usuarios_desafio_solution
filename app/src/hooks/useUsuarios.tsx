@@ -5,7 +5,8 @@ const useUsuarios = () => {
     const query = useQuery({
         queryFn: buscarUsuarios,
         queryKey: ['usuarios-data'],
-        retry: false
+        retry: false,
+        refetchOnWindowFocus: false
     });
 
     return query;

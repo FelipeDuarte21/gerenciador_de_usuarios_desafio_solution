@@ -55,6 +55,7 @@ const Home = () => {
                     <i className="fa-solid fa-user-plus me-1"></i>Novo
                 </Link>
 
+                
                 <CardList usuarios={data} isError={isError} isLoading={isLoading} onEditar={onEditar} onExcluir={onExcluir} />
 
             </Container>
