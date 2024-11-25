@@ -8,7 +8,6 @@ const useDebounced = (value: any, delay: number = 500) => {
 
         const timeout = setTimeout(() => {
             setDebouncedValue(value);
-            console.log(value);
         },delay);
 
         return () => { clearTimeout(timeout) } ; 

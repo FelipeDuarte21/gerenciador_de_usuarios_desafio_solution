@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import Field from "../Field";
-import { tiraMascaraCPF, tiraMascaraCEP } from "../../utils/pipes";
+import { colocaMascaraCEP, colocaMascaraCPF, tiraMascaraCPF, tiraMascaraCEP } from "../../utils/pipes";
 
 const FormAtualiza = ({ dados, onReceberDados }) => {
 
@@ -9,6 +9,7 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
 
     const onSubmit = (dados) => {
         dados = {...dados, cep: tiraMascaraCEP(dados.cep), cpf: tiraMascaraCPF(dados.cpf)};
+        console.log(dados);
         onReceberDados(dados);
     }
 
@@ -16,15 +17,15 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
 
         if(dados) {
             setValue('nome', dados.nome);
-            setValue('cpf', dados.cpf);
-            setValue('cep', dados.cep);
+            setValue('cpf', colocaMascaraCPF(dados.cpf));
+            setValue('cep', colocaMascaraCEP(dados.cep));
             setValue('logradouro', dados.logradouro);
             setValue('bairro', dados.bairro);
             setValue('cidade', dados.cidade);
             setValue('estado', dados.estado);
         }
 
-    }, [dados])
+    })
 
     return (
 
@@ -42,8 +43,10 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
 
                 <div className="col-12 col-md-6">
                     <Field nameField="cpf" label="CPF" register={register} errors={errors} 
-                        isInputMask={true}  mask="999.999.999-99" 
-                            validation={{ required: { value: true,  message: 'CPF é requerido!'}}} />
+                        isInputMask={true}  mask="999.999.999-99" validation={{ 
+                            required: { value: true,  message: 'CPF é requerido!'}
+                        }} 
+                    />
                 </div>
 
                 <div className="col-12 col-md-6">

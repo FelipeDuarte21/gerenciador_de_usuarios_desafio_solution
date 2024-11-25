@@ -48,8 +48,6 @@ const FormCadastro = ({ onReceberDados }) => {
             setValue('estado', data.estado);
         }
 
-        console.log(data);
-
     }, [data]);
 
     return (
@@ -77,7 +75,8 @@ const FormCadastro = ({ onReceberDados }) => {
 
                 <div className="col-12 col-md-6">
                     <Field nameField="cep" label="CEP" register={register} errors={errors} 
-                        isInputMask={true} mask="99.999-999" onChangeHandler={(value) => { setValueCep(value) }} valueInput={valueCep}
+                        isHandlerValue={true} onChangeHandler={(value) => { setValueCep(value) }} valueInput={valueCep}
+                        isInputMask={true} mask="99.999-999" 
                         validation={{
                             required: { value: true,  message: 'CEP é requerido' } 
                         }} 

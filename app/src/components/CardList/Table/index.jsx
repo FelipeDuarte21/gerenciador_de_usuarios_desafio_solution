@@ -23,8 +23,8 @@ const Table = ({ usuarios, onEditar, onExcluir }) => {
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
-                        {usuarios.map((usuario) => {
-                            return <tr>
+                        {usuarios.map((usuario, i) => {
+                            return <tr key={i}>
                                 <td>{usuario.nome}</td>
                                 <td>{colocaMascaraCPF(usuario.cpf)}</td>
                                 <td>{colocaMascaraCEP(usuario.cep)}</td>
