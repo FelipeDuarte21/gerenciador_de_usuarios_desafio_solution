@@ -34,9 +34,9 @@ const CardList = ({ usuarios, isLoading, isError, onEditar, onExcluir }) => {
                 {usuarios.length > 0 && <>
                 
                     <div className="my-3 d-flex justify-content-end">
-                        <div class="btn-group btn-group-sm">
-                            <button type="button" class={`btn btn-outline-primary ${view === 'card' ? 'active' : ''}`} onClick={e => setView('card')}><FaAddressCard className="me-1"/>Card</button>
-                            <button type="button" class={`btn btn-outline-primary ${view === 'table' ? 'active' : ''}`} onClick={e => setView('table')}><FaTableList className="me-1"/>Tabela</button>
+                        <div className="btn-group btn-group-sm">
+                            <button type="button" className={`btn btn-outline-primary ${view === 'card' ? 'active' : ''}`} onClick={e => setView('card')}><FaAddressCard className="me-1"/>Card</button>
+                            <button type="button" className={`btn btn-outline-primary ${view === 'table' ? 'active' : ''}`} onClick={e => setView('table')}><FaTableList className="me-1"/>Tabela</button>
                         </div>
                     </div>
 

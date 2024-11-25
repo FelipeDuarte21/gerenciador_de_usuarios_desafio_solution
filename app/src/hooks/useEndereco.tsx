@@ -4,9 +4,9 @@ import { buscarEnderecoPorCep } from '../services/api.js'
 const useEndereco = (cep: string) => {
     const query = useQuery({
         queryFn: () => buscarEnderecoPorCep(cep),
-        queryKey: ['endereco-data'],
+        queryKey: ['endereco-data', cep],
         retry: false,
-        enabled: cep?.length == 8,
+        enabled: !!cep,
         refetchOnWindowFocus: false
     });
 

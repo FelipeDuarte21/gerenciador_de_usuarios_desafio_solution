@@ -1,4 +1,4 @@
-export const pipeCPF = (cpf) => {
+export const colocaMascaraCPF = (cpf) => {
     let cpfMascarado = '';
     for(let i=0; i < cpf.length ; i++) {
         cpfMascarado += cpf[i]
@@ -12,7 +12,7 @@ export const pipeCPF = (cpf) => {
     return cpfMascarado;
 }
 
-export const pipeCep = (cep) => {
+export const colocaMascaraCEP = (cep) => {
     let cepMascarado = '';
     for(let i=0; i < cep.length ; i++) {
         cepMascarado += cep[i]
@@ -28,4 +28,8 @@ export const pipeCep = (cep) => {
 
 export const tiraMascaraCPF = (cpf) => {
     return cpf.replace(".", "").replace(".", "").replace(".", "").replace("-", "");
+}
+
+export const tiraMascaraCEP = (cep) => {
+    return cep.replace(".","").replace("-","");
 }

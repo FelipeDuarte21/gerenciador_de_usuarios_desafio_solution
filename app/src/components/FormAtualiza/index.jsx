@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { FaRegFloppyDisk } from "react-icons/fa6";
 import Field from "../Field";
-import { tiraMascaraCPF } from "../../utils/pipes";
+import { tiraMascaraCPF, tiraMascaraCEP } from "../../utils/pipes";
 
 const FormAtualiza = ({ dados, onReceberDados }) => {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
     const onSubmit = (dados) => {
-        dados = {...dados, cpf: tiraMascaraCPF(dados.cpf)};
+        dados = {...dados, cep: tiraMascaraCEP(dados.cep), cpf: tiraMascaraCPF(dados.cpf)};
         onReceberDados(dados);
     }
 
@@ -49,9 +49,9 @@ const FormAtualiza = ({ dados, onReceberDados }) => {
 
                 <div className="col-12 col-md-6">
                     <Field nameField="cep" label="CEP" register={register} errors={errors} 
+                        isInputMask={true} mask="99.999-999"
                         validation={{
                             required: { value: true,  message: 'CEP é requerido' },
-                            pattern: { value: /^[0-9]{8}$/, message: "CEP fora do formato padrão de 8 digitos" }
                         }} />
                 </div>
 

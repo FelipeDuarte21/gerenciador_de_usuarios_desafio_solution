@@ -5,44 +5,51 @@ import useEndereco from '../../hooks/useEndereco';
 import Spinner from '../Spinner';
 import { useQueryClient } from 'react-query';
 import Field from "../Field";
-import { tiraMascaraCPF } from "../../utils/pipes";
+import { tiraMascaraCPF , tiraMascaraCEP } from "../../utils/pipes";
+import useDebounced from "../../hooks/useDebounced";
 
 const FormCadastro = ({ onReceberDados }) => {
 
-    const { register, handleSubmit, setValue, formState: { errors }, watch, reset } = useForm();
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     
-    const [ debouncedCep, setDebouncedCep ] = useState('');
-
-    const inputCep = watch('cep');
-
-    const { data, isLoading } = useEndereco(debouncedCep);
+    const [valueCep, setValueCep] = useState('');
+    
+    const debouncedValue = useDebounced(valueCep);
+    
+    const [ valueSearchCep, setValueSearchCep ] = useState(undefined);
+    
+    const { data, isLoading, refetch } = useEndereco(valueSearchCep);
 
     const queryClient = useQueryClient();
 
     const onSubmit = (dados) => {
-        dados = {...dados, cpf: tiraMascaraCPF(dados.cpf)};
+        dados = {...dados, cep: tiraMascaraCEP(dados.cep), cpf: tiraMascaraCPF(dados.cpf)};
         onReceberDados(dados);
         queryClient.setQueriesData('endereco-data', undefined);
     }
 
+    
     useEffect(() => {
 
-        const timeout = setTimeout(() => {
-            setDebouncedCep(inputCep)
-        }, 500);
-
-        return () => { clearTimeout(timeout) };
-
-    }, [inputCep])
-
-    useEffect(() => {
+        let value = tiraMascaraCEP(debouncedValue);
         
+        if(value.match("^\\d{8}$")){
+            setValueSearchCep(value);
+            refetch();
+        }
+
+    }, [debouncedValue])
+
+    useEffect(() => {
+    
         if(data) {
             setValue('logradouro', data.logradouro);
             setValue('bairro', data.bairro);
             setValue('cidade', data.cidade);
             setValue('estado', data.estado);
         }
+
+        console.log(data);
 
     }, [data]);
 
@@ -71,9 +78,9 @@ const FormCadastro = ({ onReceberDados }) => {
 
                 <div className="col-12 col-md-6">
                     <Field nameField="cep" label="CEP" register={register} errors={errors} 
+                        isInputMask={true} mask="99.999-999" onChangeHandler={(value) => { setValueCep(value) }} valueInput={valueCep}
                         validation={{
-                            required: { value: true,  message: 'CEP é requerido' },
-                            pattern: { value: /^[0-9]{8}$/, message: "CEP fora do formato padrão de 8 digitos" }
+                            required: { value: true,  message: 'CEP é requerido' } 
                         }} 
                     />
                 </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import './styles.css';
-import { pipeCPF, pipeCep } from "../../../utils/pipes";
+import { colocaMascaraCEP, colocaMascaraCPF } from "../../../utils/pipes";
 import { FaPenToSquare } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 
@@ -28,8 +28,8 @@ const Table = ({ usuarios, onEditar, onExcluir }) => {
                         {usuarios.map((usuario) => {
                             return <tr>
                                 <td>{usuario.nome}</td>
-                                <td>{pipeCPF(usuario.cpf)}</td>
-                                <td>{pipeCep(usuario.cep)}</td>
+                                <td>{colocaMascaraCPF(usuario.cpf)}</td>
+                                <td>{colocaMascaraCEP(usuario.cep)}</td>
                                 <td>{usuario.logradouro}</td>
                                 <td>{usuario.bairro}</td>
                                 <td>{usuario.cidade}</td>
