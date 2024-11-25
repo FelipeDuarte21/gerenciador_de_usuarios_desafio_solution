@@ -33,6 +33,14 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorModel em = new ErrorModel(HttpStatus.NO_CONTENT.value(),"Not Content", ex.getMessage());
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(em);
 	}
+
+	@ExceptionHandler(AuthorizationException.class)
+	public ResponseEntity<ErrorModel> authorization(AuthorizationException ex,
+			HttpServletRequest request){
+		
+		ErrorModel em = new ErrorModel(HttpStatus.FORBIDDEN.value(),"Acesso negado",ex.getMessage());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(em);
+	}
 	
 	@ExceptionHandler(ObjectBadRequestException.class)
 	public ResponseEntity<ErrorModel> badRequestExceptionHandler(ObjectBadRequestException ex,
