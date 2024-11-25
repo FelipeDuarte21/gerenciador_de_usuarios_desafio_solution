@@ -1,0 +1,46 @@
+services:
+  db:
+    image: 'postgres:14'
+    container_name: db
+    networks:
+      - application-net
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_DB: 'db_gerenciamento_endereco_solution'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  api:
+    image: api-gerenciamento-usuarios
+    container_name: api_gerenciamento_usuarios
+    networks:
+      - application-net
+    restart: always
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  app:
+    image: app-gerenciamento-usuarios
+    container_name: app_gerenciamento_usuarios
+    networks:
+      - application-net
+    restart: always
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+volumes: 
+  db-data:
+networks:
+  application-net:
+    driver: bridge
