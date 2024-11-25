@@ -21,6 +21,7 @@ A API é desenvolvida com foco na simplicidade, segurança e flexibilidade, perm
 - **Spring Validation**: Ferramenta para validação de dados de entrada, garantindo que as informações recebidas pela API atendam aos requisitos necessários antes de serem processadas.
 - **Flyway**: Utilizado para versionamento e controle de migrações do banco de dados, permitindo que o banco seja atualizado de forma controlada e sem erros.
 - **Lombok**: Biblioteca Java que simplifica a escrita de código, eliminando a necessidade de criar métodos como getters, setters, `toString()`, `equals()`, e `hashCode()` manualmente.
+- **Spring Security**: Utilizado para fazer a autenticação da API e deixando a aplicação mais segura.
 
 ### Frontend
 - **React**: Biblioteca JavaScript para construção da interface do usuário, permitindo criar componentes reutilizáveis e interativos.
@@ -42,13 +43,20 @@ Essas tecnologias, combinadas, oferecem uma solução robusta para o gerenciamen
 
 ## Como Rodar o Projeto Localmente
 
-A maneira mais fácil de rodar é rodar é: a partir da raíz do projeto onde se encontram as pastas **api** e **app** você encontra o arquivo **docker-compose.yaml**, abra o terminal do Sistema Operacional nessa pasta raíz e digite o seguinte comando: **docker-compose up** e espere o docker configurar e subir a API e APP localmente.
+A maneira mais fácil de rodar é: a partir da pasta raíz do projeto onde se encontram as pastas **api** e **app** você encontrará o arquivo **docker-compose.yaml**, abra o terminal do seu Sistema Operacional nessa pasta raíz e digite o comando: **docker-compose up** espere o docker configurar e subir a aplicação localmente localmente. o Frontend estará rodando no **localhost:80**.
 
 **Obs:** Verifique se está instalado na sua máquina o docker e esteja oline no momento da execução do comando.
 
+Na tela de login digite esses dados para acessar o sistema.
+
+### Dados de Acesso:
+**Email:** admin@admin.com
+**Senha:** admin123
+
 ## Sobre o Desenvolvedor do Sistema
-Este sistema foi desenvolvido por **Luiz Felipe Duarte Elias** (quem vos escreve este arquivo) como **desafio tecnico para a Solution**.
-**Email:** felipe15lfde@gmail.com
+Este sistema foi desenvolvido por **Luiz Felipe Duarte Elias** (quem vos escreve este arquivo), este sistema foi implementado para a realização do **desafio técnico para a Solution**.
+
+**Meu Email Para Contato:** felipe15lfde@gmail.com
 
 ## Licença 
 MIT
